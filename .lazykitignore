@@ -1,4 +1,4 @@
 *.logs
 !docs/*
-!templates/license/*
+templates/license/*
 

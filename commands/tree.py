@@ -71,4 +71,8 @@ def handle(args):
         extra_ignore.append(pattern)
 
     tree = crawl(args.context, extra_ignore_patterns=extra_ignore)
-    display(tree, show_content=args.content)
+
+    if args.long:
+        display(tree, show_content=args.content)
+    else:
+        display(tree)

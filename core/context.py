@@ -1,6 +1,6 @@
 """ Reads file trees, comments, and metadata for project context. """
-# lazykit:description: This is a utility function.
-# lazykit:author: Jane Doe
+# @kit:description: This is a utility function.
+# @kit:author: Jane Doe
 import ast
 import fnmatch
 import json
@@ -19,7 +19,7 @@ except ImportError:
 # --- Constants ---
 DEFAULT_EXCLUDE_DIRS = {'.git', '__pycache__', '.venv', 'node_modules', '.mypy_cache', 'dist', 'build'}
 DEFAULT_EXCLUDE_FILES = {'.DS_Store'}
-MAGIC_COMMENT_REGEX = re.compile(r"(#|//|<!--)\s*lazykit:(\w+):\s*(.*?)(\s*-->)?")
+MAGIC_COMMENT_REGEX = re.compile(r"(#|//|<!--)\s*@kit:(\w+):\s*(.*?)(\s*-->)?")
 
 # --- Main Public Function ---
 def crawl_project_context(
@@ -210,7 +210,7 @@ def _extract_file_context(path: pathlib.Path, file_data: dict, content_ignore_pa
         file_data['summary'] = "File is binary or could not be read."
         return file_data
 
-    if re.search(r"(#|//|<!--)\s*lazykit:ignore", content):
+    if re.search(r"(#|//|<!--)\s*@kit:ignore", content):
         file_data['summary'] = "File content parsing disabled by magic comment."
         return file_data
 
