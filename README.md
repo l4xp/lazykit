@@ -190,5 +190,3 @@ For significant changes, please open an issue for discussion first.
 ## 📄 License
 
 This project is licensed under the **MIT License** — see the `LICENSE` file for details.
-
-```
