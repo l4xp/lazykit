@@ -21,15 +21,11 @@ An extensible CLI project automation tool.
 
 You can install `lazykit` directly from the cloned repository.
 
-### Option 1: Clone only the `lazykit` directory using Git sparse-checkout
+### Clone the `lazykit` directory
 
 ```bash
 # 1. Clone the directory
-git clone --no-checkout https://github.com/ljzh04/TinyProjects.git lazykit
-cd lazykit
-git sparse-checkout init --cone
-git sparse-checkout set lazykit/
-git checkout main  # Or your desired branch, e.g., 'master'
+git clone https://github.com/l4xp/lazykit.git
 cd lazykit
 
 # 2. Install dependencies
@@ -38,20 +34,6 @@ pip install -r requirements.txt
 # 3. Run or add lazykit/ to your shell PATH
 python -m lazykit [OPTIONS]
 ````
-
-### Option 2: Clone the whole monorepo (simple, but may be large)
-
-```bash
-# 1. Clone the repository (if you haven't already)
-git clone https://github.com/ljzh04/TinyProjects.git
-cd TinyProjects/lazykit
-
-# 2. Install dependencies
-pip install -r requirements.txt
-
-# 3. Run or add lazykit/ to your shell PATH
-python -m lazykit [OPTIONS]
-```
 
 ---
 
