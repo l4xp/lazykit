@@ -1,3 +1,6 @@
+# @kit:name:test
+# @kit:author:Jane Doe
+# @kit:note: test
 # my_dummy_project/utils.py
 
 def add_numbers(a: int, b: int) -> int:

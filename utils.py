@@ -13,6 +13,7 @@ class CustomFormatter(argparse.RawTextHelpFormatter):
             parts[-1] += f" {metavar}"
         return ', '.join(parts)
 
+
 def display_file_tree(
     tree: dict | None,
     indent: str = "",

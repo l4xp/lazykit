@@ -19,7 +19,7 @@ except ImportError:
 # --- Constants ---
 DEFAULT_EXCLUDE_DIRS = {'.git', '__pycache__', '.venv', 'node_modules', '.mypy_cache', 'dist', 'build'}
 DEFAULT_EXCLUDE_FILES = {'.DS_Store'}
-MAGIC_COMMENT_REGEX = re.compile(r"(#|//|<!--)\s*@kit:(\w+):\s*(.*?)(\s*-->)?")
+MAGIC_COMMENT_REGEX = re.compile(r"(?:#|//|<!--)\s*@kit:(\w+):\s*(.*)")
 
 # --- Main Public Function ---
 def crawl_project_context(
@@ -222,7 +222,7 @@ def _extract_file_context(path: pathlib.Path, file_data: dict, content_ignore_pa
 
     # 2. Capture ALL magic comments and add them to metadata.
     #    This ensures `description` is preserved as metadata even if a summary exists.
-    magic_comments = {key: value.strip() for _, key, value, _ in MAGIC_COMMENT_REGEX.findall(content)}
+    magic_comments = {key: value.strip() for key, value in MAGIC_COMMENT_REGEX.findall(content)}
     if magic_comments:
         file_data['metadata'].update(magic_comments)
 
